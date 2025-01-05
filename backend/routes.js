@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import Doctor from "./doctor.js";
+import Doctor from "./models/doctor.js";
 
 const router = express.Router();
 

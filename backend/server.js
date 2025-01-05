@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import morgan from "morgan";
 import dotenv from "dotenv";
 import router from "./routes.js";
+import swaggerUI from "swagger-ui-express";
+import swaggerDocument from "./swagger-docs.json" with { type: "json" };
 
 mongoose
   .connect("mongodb://localhost:27017/patientsDB")
@@ -23,6 +25,7 @@ app.use(express.json());
 
 // Routes
 app.use("/", router);
+app.use("/docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 // Start server
 app.listen(PORT, () => {
